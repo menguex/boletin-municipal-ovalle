@@ -36,27 +36,24 @@ No use rutas `file://` ni carpetas de Mac/Windows en el correo.
 
 ## GitHub
 
-Este proyecto se versiona con Git. Para publicarlo en GitHub (requiere su cuenta):
+Repositorio público:
+
+https://github.com/menguex/boletin-municipal-ovalle
+
+Ya está en `main` con remote `origin`. Para publicar cambios:
 
 ```bash
-cd /ruta/al/proyecto
-git init -b main
+cd /Users/osvaldovega/Downloads/boletin-municipal-ovalle-email
 git add .
-git commit -m "feat: boletin municipal ovalle listo para produccion"
-gh auth login
+git commit -m "feat: actualizacion del boletin"
+git push
+```
+
+Si necesita recrear el remoto:
+
+```bash
 gh repo create boletin-municipal-ovalle --public --source=. --remote=origin --push
 ```
-
-Si no tiene GitHub CLI:
-
-1. Cree un repositorio vacío en github.com.
-2. Ejecute:
-
-```bash
-git remote add origin https://github.com/SU-USUARIO/boletin-municipal-ovalle.git
-git push -u origin main
-```
-
 ## Vercel
 
 Este proyecto **ya está publicado** en:
