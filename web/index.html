@@ -6,107 +6,207 @@
   <title>Boletín Informativo — Ilustre Municipalidad de Ovalle — Septiembre 2026</title>
   <meta name="description" content="Boletín informativo institucional de la Ilustre Municipalidad de Ovalle, septiembre 2026." />
   <link rel="icon" href="/assets/logo/logo-ovalle.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
   <style>
     :root {
       --azul: #1F6CB1;
       --azul-oscuro: #123A63;
-      --azul-fondo: #C5D6E8;
+      --azul-profundo: #0E2C4C;
+      --azul-fondo: #B9CDE0;
       --azul-suave: #EAF2F9;
       --amarillo: #F6B824;
+      --ambar: #E8A51A;
       --beige: #E7E0CB;
-      --texto: #2C2C2C;
-      --muted: #5A5A5A;
+      --texto: #243041;
+      --muted: #5E6B7A;
       --blanco: #ffffff;
-      --card: #F5F8FB;
-      --borde: #D5DEE8;
+      --niebla: #F4F7FB;
+      --borde: #CDD9E6;
+      --sombra: 0 18px 50px rgba(14, 44, 76, 0.16);
     }
     * { box-sizing: border-box; }
     body {
       margin: 0;
-      background:
-        radial-gradient(ellipse at top, #d7e5f3 0%, var(--azul-fondo) 55%),
-        var(--azul-fondo);
+      min-height: 100vh;
       color: var(--texto);
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.55;
+      font-family: "Source Sans 3", "Segoe UI", Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      background-color: var(--azul-fondo);
+      background-image:
+        radial-gradient(circle at 12% 18%, rgba(255,255,255,0.45) 0, transparent 28%),
+        radial-gradient(circle at 88% 8%, rgba(246,184,36,0.18) 0, transparent 24%),
+        linear-gradient(165deg, #d5e4f2 0%, #b7cde2 48%, #a8c0d8 100%);
     }
     img { max-width: 100%; height: auto; display: block; }
     a { color: var(--azul); }
     .wrap {
-      max-width: 680px;
-      margin: 28px auto;
+      max-width: 700px;
+      margin: 40px auto;
       background: var(--blanco);
-      box-shadow: 0 12px 36px rgba(18, 58, 99, 0.14);
+      box-shadow: var(--sombra);
+      position: relative;
       overflow: hidden;
     }
-    .bar-azul { height: 8px; background: var(--azul); }
-    .bar-oro { height: 4px; background: linear-gradient(90deg, var(--amarillo), #f39d28); }
+    .wrap::before {
+      content: "";
+      position: absolute;
+      inset: 10px;
+      border: 1px solid rgba(31, 108, 177, 0.12);
+      pointer-events: none;
+      z-index: 2;
+    }
+    .brand-bar {
+      display: grid;
+      grid-template-rows: 7px 3px 2px;
+    }
+    .brand-bar span:nth-child(1) { background: linear-gradient(90deg, #123A63, #1F6CB1 55%, #2A7FC4); }
+    .brand-bar span:nth-child(2) { background: linear-gradient(90deg, var(--amarillo), var(--ambar)); }
+    .brand-bar span:nth-child(3) { background: var(--azul-oscuro); }
     header {
-      padding: 28px 28px 26px;
+      padding: 36px 40px 32px;
       text-align: center;
+      background:
+        linear-gradient(180deg, #ffffff 0%, #f8fbfe 100%);
+      position: relative;
+      z-index: 1;
+    }
+    .eyebrow {
+      margin: 0 0 18px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--azul);
     }
     header img {
-      width: 280px;
-      margin: 0 auto 14px;
-      transition: opacity .2s ease;
+      width: 268px;
+      margin: 0 auto 22px;
+      filter: drop-shadow(0 4px 10px rgba(18, 58, 99, 0.08));
+      transition: transform .25s ease;
     }
-    header a:hover img { opacity: .92; }
+    header a:hover img { transform: translateY(-1px); }
+    .title-block {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin: 0 auto 16px;
+      max-width: 520px;
+    }
+    .title-block::before,
+    .title-block::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--borde));
+    }
+    .title-block::after {
+      background: linear-gradient(90deg, var(--borde), transparent);
+    }
     header h1 {
       margin: 0;
       color: var(--azul-oscuro);
-      font-size: 1.4rem;
-      letter-spacing: 1.5px;
+      font-size: clamp(1.25rem, 3.2vw, 1.55rem);
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      line-height: 1.25;
+      white-space: nowrap;
     }
     .fecha {
-      display: inline-block;
-      margin: 12px 0 0;
-      padding: 6px 14px;
-      background: var(--card);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0;
+      padding: 8px 16px;
       border: 1px solid var(--borde);
-      color: var(--azul);
-      font-size: 0.8125rem;
+      background: var(--blanco);
+      color: var(--azul-oscuro);
+      font-size: 0.8rem;
       font-weight: 700;
-      letter-spacing: 0.4px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .fecha::before,
+    .fecha::after {
+      content: "";
+      width: 6px;
+      height: 6px;
+      background: var(--amarillo);
+      border-radius: 50%;
     }
     .seccion {
       display: flex;
       align-items: stretch;
-      background: var(--azul);
+      background: linear-gradient(90deg, #164e86, var(--azul) 40%, #2580c4);
       color: var(--blanco);
-      font-size: 0.8125rem;
+      position: relative;
+      z-index: 1;
+    }
+    .seccion.oscura {
+      background: linear-gradient(90deg, #0c2a4a, var(--azul-oscuro) 45%, #1a4a76);
+    }
+    .seccion .accent {
+      width: 5px;
+      flex: 0 0 5px;
+      background: linear-gradient(180deg, var(--amarillo), var(--ambar));
+    }
+    .seccion .label {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 15px 26px;
+      font-size: 0.78rem;
       font-weight: 700;
-      letter-spacing: 1.5px;
+      letter-spacing: 0.18em;
     }
-    .seccion::before {
-      content: "";
-      width: 6px;
-      flex: 0 0 6px;
-      background: var(--amarillo);
+    .seccion .num {
+      opacity: 0.55;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: 0.08em;
     }
-    .seccion span { padding: 14px 22px; }
-    .seccion.oscura { background: var(--azul-oscuro); }
+    .hero {
+      position: relative;
+      z-index: 1;
+    }
     .hero img { width: 100%; }
-    .bloque { padding: 22px 28px 28px; }
+    .hero-cap {
+      height: 3px;
+      background: linear-gradient(90deg, var(--amarillo), transparent 70%);
+    }
+    .bloque {
+      padding: 28px 40px 32px;
+      position: relative;
+      z-index: 1;
+    }
     .kicker {
       display: inline-flex;
       align-items: stretch;
-      margin: 0 0 10px;
-      font-size: 0.6875rem;
+      margin: 0 0 14px;
+      font-size: 0.68rem;
       font-weight: 700;
-      letter-spacing: 1px;
+      letter-spacing: 0.16em;
       color: var(--azul);
       background: var(--azul-suave);
+      border: 1px solid rgba(31, 108, 177, 0.12);
     }
-    .kicker::before {
-      content: "";
+    .kicker i {
       width: 4px;
-      background: var(--amarillo);
+      background: linear-gradient(180deg, var(--amarillo), var(--ambar));
+      font-style: normal;
     }
-    .kicker span { padding: 5px 10px; }
-    h2, h3 { color: var(--azul-oscuro); line-height: 1.35; }
-    h2 { margin: 0 0 12px; font-size: 1.2rem; }
-    h3 { margin: 0 0 10px; font-size: 1.02rem; }
-    p { margin: 0 0 10px; }
+    .kicker span { padding: 6px 12px; }
+    h2, h3 {
+      color: var(--azul-oscuro);
+      line-height: 1.32;
+      letter-spacing: -0.01em;
+    }
+    h2 { margin: 0 0 14px; font-size: 1.35rem; font-weight: 700; }
+    h3 { margin: 0 0 10px; font-size: 1.05rem; font-weight: 700; }
+    p { margin: 0 0 12px; }
     .bloque p,
     .duo article p,
     .muted {
@@ -117,89 +217,172 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 18px;
-      background: var(--card);
-      padding: 18px;
+      padding: 8px 28px 28px;
+      background:
+        linear-gradient(180deg, #eef4fa 0%, var(--niebla) 100%);
+      position: relative;
+      z-index: 1;
     }
     .duo article {
       background: var(--blanco);
-      padding: 0 0 14px;
       border: 1px solid var(--borde);
+      box-shadow: 0 8px 24px rgba(18, 58, 99, 0.06);
+      overflow: hidden;
+      transition: transform .22s ease, box-shadow .22s ease;
     }
-    .duo article img { width: 100%; margin-bottom: 12px; }
-    .duo article h3,
-    .duo article p { padding: 0 12px; }
-    .duo article p { font-size: 0.9375rem; color: var(--texto); }
-    .muted { color: var(--muted); font-size: 0.9375rem; }
-    .afiche { padding: 0 28px 18px; }
+    .duo article:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 30px rgba(18, 58, 99, 0.12);
+    }
+    .duo article .media {
+      overflow: hidden;
+      border-bottom: 3px solid var(--amarillo);
+    }
+    .duo article img {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      transition: transform .35s ease;
+    }
+    .duo article:hover img { transform: scale(1.03); }
+    .duo article .body { padding: 16px 16px 18px; }
+    .duo article p { font-size: 0.92rem; color: var(--texto); margin: 0; }
+    .muted {
+      color: var(--muted);
+      font-size: 0.94rem;
+      font-style: italic;
+    }
+    .afiche {
+      padding: 0 40px 22px;
+      position: relative;
+      z-index: 1;
+    }
     .afiche img {
       border: 1px solid var(--borde);
-      box-shadow: 0 4px 14px rgba(18, 58, 99, 0.08);
+      box-shadow:
+        0 0 0 6px #f8fbfe,
+        0 10px 28px rgba(18, 58, 99, 0.1);
     }
     .duo-afiches {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 14px;
-      padding: 0 18px 18px;
+      gap: 16px;
+      padding: 0 28px 28px;
+      position: relative;
+      z-index: 1;
     }
     .duo-afiches img {
       border: 1px solid var(--borde);
-      box-shadow: 0 4px 14px rgba(18, 58, 99, 0.08);
+      box-shadow: 0 8px 22px rgba(18, 58, 99, 0.08);
+      transition: transform .22s ease;
     }
-    hr.sep {
-      border: 0;
-      border-top: 1px solid var(--beige);
-      margin: 0 28px;
+    .duo-afiches img:hover { transform: translateY(-2px); }
+    .sep {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 4px 40px;
+      color: var(--beige);
     }
-    .interes-wrap { padding: 8px 0 8px; background: linear-gradient(#fff, #f8fbfe); }
+    .sep::before,
+    .sep::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--beige), transparent);
+    }
+    .sep i {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--amarillo);
+      font-style: normal;
+    }
+    .interes-wrap {
+      padding: 10px 0 22px;
+      background:
+        linear-gradient(180deg, #ffffff 0%, #f5f9fc 100%);
+      position: relative;
+      z-index: 1;
+    }
     article.card {
-      border: 1px solid var(--borde);
-      border-left: 4px solid var(--azul);
-      margin: 16px 28px;
+      margin: 18px 40px;
       background: var(--blanco);
-      transition: box-shadow .2s ease, transform .2s ease;
+      border: 1px solid var(--borde);
+      box-shadow: 0 10px 28px rgba(18, 58, 99, 0.07);
+      overflow: hidden;
+      transition: transform .22s ease, box-shadow .22s ease;
     }
     article.card:hover {
-      box-shadow: 0 8px 22px rgba(18, 58, 99, 0.12);
-      transform: translateY(-1px);
+      transform: translateY(-2px);
+      box-shadow: 0 16px 34px rgba(18, 58, 99, 0.12);
     }
-    article.card > a { display: block; background: var(--card); }
+    article.card .top-line {
+      height: 3px;
+      background: linear-gradient(90deg, var(--amarillo), var(--azul));
+    }
+    article.card > a {
+      display: block;
+      background: linear-gradient(180deg, #edf3f9, #e7eef6);
+    }
     article.card img { margin: 0 auto; }
-    article.card .txt { padding: 18px 18px 20px; }
-    article.card h3 { margin-bottom: 14px; }
+    article.card .txt {
+      padding: 20px 22px 22px;
+      border-left: 4px solid var(--azul);
+    }
+    article.card h3 { margin-bottom: 16px; max-width: 38ch; }
     .btn {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      background: var(--azul);
+      gap: 10px;
+      background: linear-gradient(180deg, #2480c8 0%, var(--azul) 100%);
       color: var(--blanco);
       text-decoration: none;
       font-weight: 700;
-      font-size: 0.8125rem;
-      letter-spacing: 0.8px;
-      padding: 13px 22px 13px 24px;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      padding: 14px 22px 14px 24px;
       border: 1px solid var(--azul-oscuro);
-      border-left: 4px solid var(--amarillo);
-      box-shadow: 0 2px 0 rgba(18, 58, 99, 0.18);
-      transition: background .2s ease, box-shadow .2s ease, transform .15s ease;
+      box-shadow:
+        inset 4px 0 0 var(--amarillo),
+        0 6px 14px rgba(18, 58, 99, 0.18);
+      transition: transform .15s ease, box-shadow .2s ease, filter .2s ease;
     }
     .btn::after {
-      content: "›";
-      font-size: 1.15rem;
-      line-height: 1;
-      transform: translateY(-1px);
+      content: "→";
+      font-size: 0.95rem;
+      transition: transform .2s ease;
     }
     .btn:hover {
-      background: var(--azul-oscuro);
       color: var(--blanco);
-      box-shadow: 0 4px 10px rgba(18, 58, 99, 0.22);
+      filter: brightness(1.05);
       transform: translateY(-1px);
+      box-shadow:
+        inset 4px 0 0 var(--amarillo),
+        0 10px 20px rgba(18, 58, 99, 0.22);
     }
-    .btn:active { transform: translateY(0); }
+    .btn:hover::after { transform: translateX(3px); }
     footer.site {
-      background: var(--azul-oscuro);
+      background:
+        radial-gradient(circle at 50% 0%, rgba(246,184,36,0.12), transparent 42%),
+        linear-gradient(180deg, #16456f 0%, var(--azul-oscuro) 55%, #0f2f52 100%);
       color: var(--blanco);
       text-align: center;
-      padding: 30px 24px 14px;
+      padding: 36px 28px 18px;
+      position: relative;
+      z-index: 1;
+    }
+    footer.site .mark {
+      width: 42px;
+      height: 3px;
+      margin: 0 auto 18px;
+      background: var(--amarillo);
+    }
+    footer.site strong {
+      display: block;
+      font-size: 1.05rem;
+      letter-spacing: 0.02em;
+      margin-bottom: 6px;
     }
     footer.site a {
       color: var(--blanco);
@@ -208,57 +391,76 @@
     }
     footer.site a:hover { color: var(--amarillo); }
     footer.site p { margin: 0 0 8px; }
+    footer.site .meta {
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      font-size: 0.88rem;
+      color: #d5e3f0;
+    }
     .legal {
-      background: #0E2C4C;
+      background: var(--azul-profundo);
       color: #9BB4CC;
       text-align: center;
       font-size: 0.75rem;
       padding: 14px 24px 18px;
       margin: 0;
+      position: relative;
+      z-index: 1;
     }
-    @media (max-width: 640px) {
+    @media (max-width: 700px) {
       .wrap { margin: 0; box-shadow: none; }
-      .duo, .duo-afiches { grid-template-columns: 1fr; }
-      header, .bloque, .afiche { padding-left: 16px; padding-right: 16px; }
-      article.card { margin-left: 16px; margin-right: 16px; }
-      hr.sep { margin-left: 16px; margin-right: 16px; }
+      .wrap::before { inset: 0; border: 0; }
+      .title-block { gap: 10px; }
+      header, .bloque, .afiche { padding-left: 18px; padding-right: 18px; }
+      .duo, .duo-afiches { grid-template-columns: 1fr; padding-left: 18px; padding-right: 18px; }
+      article.card { margin-left: 18px; margin-right: 18px; }
+      .sep { margin-left: 18px; margin-right: 18px; }
+      header h1 { white-space: normal; letter-spacing: 0.1em; }
       .btn { width: 100%; justify-content: center; min-height: 48px; }
     }
   </style>
 </head>
 <body>
   <main class="wrap">
-    <div class="bar-azul"></div>
-    <div class="bar-oro"></div>
+    <div class="brand-bar" aria-hidden="true"><span></span><span></span><span></span></div>
     <header>
-      <a href="https://muniovalle.gob.cl/"><img src="/assets/logo/logo-ovalle.png" width="280" height="87" alt="Ilustre Municipalidad de Ovalle" /></a>
-      <h1>BOLETÍN INFORMATIVO</h1>
+      <p class="eyebrow">Ilustre Municipalidad de Ovalle</p>
+      <a href="https://muniovalle.gob.cl/"><img src="/assets/logo/logo-ovalle.png" width="268" height="83" alt="Ilustre Municipalidad de Ovalle" /></a>
+      <div class="title-block">
+        <h1>BOLETÍN INFORMATIVO</h1>
+      </div>
       <p class="fecha">Septiembre 2026</p>
     </header>
 
-    <div class="seccion"><span>NOTICIAS DESTACADAS</span></div>
+    <div class="seccion"><i class="accent"></i><div class="label"><span>NOTICIAS DESTACADAS</span><span class="num">01</span></div></div>
     <div class="hero">
       <img src="/assets/noticias/esterilizacion-agosto.jpg" width="640" height="394" alt="Equipo veterinario realiza operativos de esterilización de perros en Ovalle" />
+      <div class="hero-cap" aria-hidden="true"></div>
     </div>
     <section class="bloque">
-      <p class="kicker"><span>NOTICIA PRINCIPAL</span></p>
+      <p class="kicker"><i></i><span>NOTICIA PRINCIPAL</span></p>
       <h2>Exitosa serie de operativos de esterilización de mascotas se realizó durante el mes de agosto</h2>
       <p>La iniciativa, a cargo de la Oficina de Tenencia Responsable de Mascotas del municipio, benefició a perros y gatos de sectores urbanos y rurales gracias al trabajo en conjunto con las juntas de vecinos. El programa se consolida como el más importante a nivel nacional en esta área, al considerar un total de 5.000 caninos y felinos a operar.</p>
     </section>
     <div class="duo">
       <article>
-        <img src="/assets/noticias/fiestas-patrias.jpg" width="292" height="179" alt="Banderas de Chile y de Ovalle izadas en un espacio público de la comuna" />
-        <h3>Ovalle se prepara para recibir las Fiestas Patrias</h3>
-        <p>Se acerca una de las celebraciones más importantes y esperadas del país. Por esta razón, el municipio ha llenado de colores y símbolos patrios distintos puntos de la comuna, invitando a las familias a vivir unas Fiestas Patrias cargadas de tradición, alegría y orgullo por nuestras raíces.</p>
+        <div class="media"><img src="/assets/noticias/fiestas-patrias.jpg" width="292" height="179" alt="Banderas de Chile y de Ovalle izadas en un espacio público de la comuna" /></div>
+        <div class="body">
+          <h3>Ovalle se prepara para recibir las Fiestas Patrias</h3>
+          <p>Se acerca una de las celebraciones más importantes y esperadas del país. Por esta razón, el municipio ha llenado de colores y símbolos patrios distintos puntos de la comuna, invitando a las familias a vivir unas Fiestas Patrias cargadas de tradición, alegría y orgullo por nuestras raíces.</p>
+        </div>
       </article>
       <article>
-        <img src="/assets/noticias/trekking-huallillinga.jpg" width="292" height="179" alt="Vecinos y familias recorren el trekking familiar en Huallillinga" />
-        <h3>Más de 200 personas disfrutaron del trekking familiar en Huallillinga</h3>
-        <p>Una nueva jornada de deporte al aire libre reunió a la comunidad para promover la actividad física y vida saludable, lo que permitió que los asistentes disfrutaran de un recorrido por los hermosos paisajes naturales de la zona rural.</p>
+        <div class="media"><img src="/assets/noticias/trekking-huallillinga.jpg" width="292" height="179" alt="Vecinos y familias recorren el trekking familiar en Huallillinga" /></div>
+        <div class="body">
+          <h3>Más de 200 personas disfrutaron del trekking familiar en Huallillinga</h3>
+          <p>Una nueva jornada de deporte al aire libre reunió a la comunidad para promover la actividad física y vida saludable, lo que permitió que los asistentes disfrutaran de un recorrido por los hermosos paisajes naturales de la zona rural.</p>
+        </div>
       </article>
     </div>
 
-    <div class="seccion oscura"><span>ANUNCIOS</span></div>
+    <div class="seccion oscura"><i class="accent"></i><div class="label"><span>ANUNCIOS</span><span class="num">02</span></div></div>
     <section class="bloque">
       <h2>Fiesta Chica del Niño Dios de Sotaquí 2026</h2>
       <p>La localidad de Sotaquí se prepara para recibir a toda la comunidad en una nueva versión de su tradicional celebración. Desde el viernes 28 de agosto hasta el domingo 6 de septiembre se realizarán una variedad de actividades religiosas, que incluirán la novena, misas, procesiones y saludos de los bailes religiosos.</p>
@@ -271,7 +473,7 @@
       <img src="/assets/anuncios/programacion-sotaqui-1.jpg" width="296" height="370" alt="Programación de la Fiesta Chica de Sotaquí del 28 de agosto al 5 de septiembre de 2026" />
       <img src="/assets/anuncios/programacion-sotaqui-2.jpg" width="296" height="370" alt="Programación del domingo 6 de septiembre para la Fiesta Chica del Niño Dios de Sotaquí" />
     </div>
-    <hr class="sep" />
+    <div class="sep" aria-hidden="true"><i></i></div>
     <section class="bloque">
       <h2>Septiembre inicia con nuevas fechas de esterilización de mascotas</h2>
       <p>Nuevos operativos gratuitos de esterilización se realizarán durante el mes de septiembre en distintos puntos de la comuna. Para participar, debes inscribirte previamente a través de la junta de vecinos de tu localidad.</p>
@@ -280,7 +482,7 @@
     <div class="afiche">
       <img src="/assets/anuncios/esterilizacion-septiembre.jpg" width="592" height="740" alt="Calendario de operativos de esterilización de mascotas en Ovalle durante septiembre" />
     </div>
-    <hr class="sep" />
+    <div class="sep" aria-hidden="true"><i></i></div>
     <section class="bloque">
       <h2>Cambio al horario de verano este sábado 5 de septiembre</h2>
       <p>Este sábado Chile dará inicio al horario estival, por lo que a la medianoche (00:00 horas) recuerda adelantar tu reloj en 1 hora.</p>
@@ -289,9 +491,10 @@
       <img src="/assets/anuncios/cambio-horario.jpg" width="592" height="740" alt="Aviso municipal: cambio de hora el sábado 5 de septiembre a las 00:00, adelantar el reloj una hora" />
     </div>
 
-    <div class="seccion"><span>NOTICIAS DE INTERÉS</span></div>
+    <div class="seccion"><i class="accent"></i><div class="label"><span>NOTICIAS DE INTERÉS</span><span class="num">03</span></div></div>
     <div class="interes-wrap">
       <article class="card">
+        <div class="top-line" aria-hidden="true"></div>
         <a href="https://muniovalle.gob.cl/mas-de-mil-estudiantes-de-ovalle-reciben-computadores-para-fortalecer-sus-aprendizajes/"><img src="/assets/interes/computadores-estudiantes.jpg" width="370" height="270" alt="Entrega de computadores a estudiantes de Ovalle" /></a>
         <div class="txt">
           <h3>Más de mil estudiantes de Ovalle reciben computadores para fortalecer sus aprendizajes</h3>
@@ -299,6 +502,7 @@
         </div>
       </article>
       <article class="card">
+        <div class="top-line" aria-hidden="true"></div>
         <a href="https://muniovalle.gob.cl/46-familias-de-ovalle-obtienen-beneficio-para-reparar-sus-techumbres/"><img src="/assets/interes/subsidio-techumbres.jpg" width="370" height="270" alt="Familias de Ovalle reciben beneficio para reparar techumbres" /></a>
         <div class="txt">
           <h3>46 familias de Ovalle obtienen beneficio para reparar sus techumbres</h3>
@@ -306,6 +510,7 @@
         </div>
       </article>
       <article class="card">
+        <div class="top-line" aria-hidden="true"></div>
         <a href="https://muniovalle.gob.cl/ovalle-tendra-fonda-solidaria-este-18-y-19-de-septiembre-en-el-parque-recreacional-los-penones/"><img src="/assets/interes/fonda-solidaria.jpg" width="370" height="270" alt="Celebración comunitaria de Fiestas Patrias en Ovalle, referencia de la fonda solidaria" /></a>
         <div class="txt">
           <h3>Ovalle tendrá fonda solidaria este 18 y 19 de septiembre en el Parque Recreacional Los Peñones</h3>
@@ -314,13 +519,13 @@
       </article>
     </div>
 
-    <div class="bar-oro"></div>
     <footer class="site">
+      <div class="mark" aria-hidden="true"></div>
       <p><strong>Ilustre Municipalidad de Ovalle</strong></p>
       <p>Ovalle, Región de Coquimbo</p>
       <p>Sitio web institucional</p>
       <p><a href="https://muniovalle.gob.cl/">muniovalle.gob.cl</a></p>
-      <p>Facebook: MunicipalidadOvalle<br />Instagram: @MuniOvalle</p>
+      <p class="meta">Facebook: MunicipalidadOvalle<br />Instagram: @MuniOvalle</p>
     </footer>
     <p class="legal">Boletín informativo institucional de la Ilustre Municipalidad de Ovalle.</p>
   </main>
