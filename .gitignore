@@ -1,0 +1,12 @@
+.DS_Store
+Thumbs.db
+node_modules/
+.vercel
+.env
+.env.*
+!.env.example
+*.log
+.idea/
+.vscode/
+*.swp
+.AppleDouble

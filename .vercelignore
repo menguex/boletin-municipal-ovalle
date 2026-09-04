@@ -1,0 +1,11 @@
+.DS_Store
+.git
+.github
+1. NOTICIAS DESTACADAS
+2. ANUNCIOS
+3. NOTICIAS DE INTERÉS
+*.docx
+logo horizontal.png
+.env
+.env.*
+node_modules
