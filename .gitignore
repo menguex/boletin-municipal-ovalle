@@ -10,3 +10,4 @@ node_modules/
 .vscode/
 *.swp
 .AppleDouble
+_docx_media/
